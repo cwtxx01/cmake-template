@@ -11,6 +11,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(GNUInstallDirs)
 
+message(STATUS "Compiler ID: ${CMAKE_CXX_COMPILER_ID}")
+
 # interface
 add_library(project-name_iface_lib INTERFACE)
 
@@ -25,7 +27,7 @@ if(MSVC)
     target_compile_options(project-name_iface_lib INTERFACE /W4 /utf-8)
 else()
     target_compile_options(project-name_iface_lib
-        INTERFACE -Wall,
+        INTERFACE -Wall
         INTERFACE -Wextra
     )
 endif()
